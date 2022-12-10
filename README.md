@@ -1,0 +1,3 @@
+# wisdom-pets
+a small django application made for helping little animals . from where people can apopt pets and submit any pet animal found
+currenty it is in its initial phase many things comming soon.... 
