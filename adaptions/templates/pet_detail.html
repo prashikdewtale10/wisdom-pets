@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+		{% block content %}
+		  <h2> PETS WISDOM | PET DETAIL </h2>
+		  <div>
+		  		<h3>{{ pet.name|capfirst }}</h3>
+
+		  		<p>{{ pet.species }}</p>
+
+<!-- breed -->
+		  		{% if pet.breed %}
+			  		<p>Breed:{{ pet.breed }}</p>
+			  	{% endif %}
+<!-- age -->
+			 {% if pet.age %}
+		  		<p>Age:{{ pet.age }}</p>
+		  	{% endif %}
+<!-- sex -->
+
+		  	{% if pet.sex %}
+		  		<p>Sex:{{ pet.sex }}</p>
+		  	{% endif %}
+
+<!-- vaccinations -->
+			
+			{% if pet.vaccinations.all %}
+
+			<p> Vaccinations for:</p>
+			<ul>
+				{% for vaccination in pet.vaccinations.all %}
+				<li>{{vaccination.name}}</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+
+			<!-- submiited by -->
+			<p>Submitted by: {{pet.submitter}}</p>
+
+			<!-- filter with parameter -->
+			<p>Submitted on: {{pet.submission_date|date:" M d Y"}}</p>
+
+			<p>{{pet.description}}</p>
+		  </div>
+
+		  {% endblock %}
